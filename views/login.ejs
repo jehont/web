@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="modules/bootstrap/css/bootstrap.css" />
+  <title>Login</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <a href="/register">
+      <button class="btn btn-primary">
+        Регистрация
+      </button>
+    </a>
+  </nav>
+  <div class="container">
+    <div class="form-container">
+      <form action="/login" method="POST">
+        <div class="block">
+          <h1 class="h3 mb-3 font-weight-normal">Авторизация</h1>
+          <div>
+            <label for="email">Email</label>
+            <input class="form-control" type="email" id="email" name="email" placeholder="Введите email" required>
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input class="form-control" type="password" id="password" name="password" placeholder="Введите пароль"
+              required>
+          </div>
+          <div>
+            <% if (messages.error) { %>
+            <%= messages.error %>
+            <% } %>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>

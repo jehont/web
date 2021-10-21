@@ -43,6 +43,17 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
-// ==== Использовать роутер и редирект на / ====
+app.use('/', usersRouter)
+
+app.get('/', checkAuthenticated, (req, res) => {
+  res.render('index.ejs', {
+    name: req.user.name, 
+   })
+})
+
+app.get('/about', checkAuthenticated, (req, res) => {
+  res.render('about.ejs')
+})
+
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`server started on http://localhost:${port}`))
